@@ -9,10 +9,9 @@ class Person < ActiveRecord::Base
     def water_plant(plant)
         Watering.create(person_id: self.id, plant_id: plant.id)
         parenthood = plant_parenthoods.find_by(plant: plant)
-        binding.pry
+        # binding.pry
         if parenthood
-            affection = parenthood.affection || 0exit
-            
+            affection = parenthood.affection || 0
             affection += 1
             parenthood.update(affection: affection)
         end
